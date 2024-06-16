@@ -8,7 +8,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 
 # Include External cmake file
-#include_directories(inc)
+include_directories(inc)
 
 
 #all files from src directory, the file(GLOB...) allows for wildcard additions:

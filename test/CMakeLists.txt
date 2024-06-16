@@ -3,7 +3,7 @@ project(EE951)
 find_package(GTest REQUIRED)
 
 
-#include_directories(../inc)
+include_directories(../inc)
 include_directories(test)
 
 #Adding Complier flags
