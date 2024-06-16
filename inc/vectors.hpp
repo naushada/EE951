@@ -26,6 +26,7 @@ class VectorSpace {
             m_r = aa;
             m_s = bb;
         }
+        VectorSpace() = default;
         ~VectorSpace() = default;
 
         Vector r() const {
@@ -34,6 +35,13 @@ class VectorSpace {
 
         Vector s() const {
             return(m_s);
+        }
+
+        void r(Vector v) {
+            m_r = v;
+        }
+        void s(Vector v) {
+            m_s = v;
         }
 
     private:

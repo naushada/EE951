@@ -2,6 +2,7 @@
 #define __vector_operations_hpp__
 
 #include <gtest/gtest.h>
+#include <memory>
 #include "vectors.hpp"
 
 
@@ -15,7 +16,12 @@ class VectorOperations : public ::testing::Test
         virtual void TearDown() override;
         virtual void TestBody() override;
 
+        std::shared_ptr<VectorSpace> space() const {
+            return(m_space);
+        }
+
     private:
+        std::shared_ptr<VectorSpace> m_space;
 
 };
 
