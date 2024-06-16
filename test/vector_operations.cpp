@@ -189,4 +189,47 @@ TEST_F(VectorOperations, VectorMultiplication_M6x1) {
     EXPECT_EQ(result, 37);
 }
 
+TEST_F(VectorOperations, VectorInnerProductProperty) {
+    Vector first = {
+        {1}, 
+        {-1},
+        {2},
+        {4},
+        {3},
+        {2}
+    };
+    Vector second = {
+        {2}, 
+        {0},
+        {1},
+        {5},
+        {3},
+        {2}
+    };
+    Vector t = {
+        {3},
+        {2},
+        {5},
+        {8},
+        {6},
+        {0}
+    };
+    /// @brief vectorSpace is aset of vectors
+    space()->r(first);
+    space()->s(second);
+    
+    auto r_Plus_s = space()->r() + space()->s();
+    /// <r,s> = s.T() * r;
+    /// <<r+s>,t> ==> t.T() * <r+s>
+    auto value = t.T() * (space()->r() + space()->s());
+    //std::cout << " Value: " << value << std::endl;
+    /// <r,t> + <s,t>
+    auto res = ((t.T() * space()->r()) + (t.T() * space()->s()));
+    //std::cout << "Res:" << res << std::endl;
+    EXPECT_EQ(res, value);
+    /// Homogeneous 
+    /// <ar,s> = s.T()(ar)
+}
+
+
 #endif /*__vector_operations_cpp__*/

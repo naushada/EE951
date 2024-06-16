@@ -52,9 +52,9 @@ Vector Vector::operator+ (const Vector& rhs) const {
     auto rhs_cols = rhs.at(0).size();
     auto rhs_rows = rhs.size();
     Vector v;
-    std::cout << " lhs_cols: " << lhs_cols << " lhs_rows: " << lhs_rows << " rhs_cols: " << rhs_cols << " rhs_rows: " << rhs_rows << std::endl;
+    //std::cout << " lhs_cols: " << lhs_cols << " lhs_rows: " << lhs_rows << " rhs_cols: " << rhs_cols << " rhs_rows: " << rhs_rows << std::endl;
 
-    if(rhs.empty() || (lhs_cols != rhs_rows) && (lhs_rows != rhs_cols)) {
+    if(rhs.empty() || (lhs_cols != rhs_cols) && (lhs_rows != rhs_rows)) {
         /// @brief Addition not possible
         std::cout << " Vector Addition is not possible" << std::endl;
         return(v);
@@ -62,9 +62,9 @@ Vector Vector::operator+ (const Vector& rhs) const {
             
     std::vector<std::int32_t> _tt;
 
-    for(auto lhs_row = 0, rhs_col = 0; (lhs_row < lhs_rows && rhs_col < rhs_cols); ++lhs_row, ++rhs_col) {
-        for(auto lhs_col = 0, rhs_row = 0; (lhs_col < lhs_cols && rhs_row < rhs_rows); ++lhs_col, ++rhs_row) {
-            _tt.push_back(this->at(lhs_row).at(lhs_col) + rhs.at(rhs_row).at(rhs_col));
+    for(auto lhs_row = 0; lhs_row < lhs_rows; ++lhs_row) {
+        for(auto lhs_col = 0; lhs_col < lhs_cols; ++lhs_col) {
+            _tt.push_back(this->at(lhs_row).at(lhs_col) + rhs.at(lhs_row).at(lhs_col));
         }
         v.push_back(_tt);
         _tt.clear();
