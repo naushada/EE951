@@ -3,7 +3,7 @@
 
 #include "vectors.hpp"
 
-std::int32_t Vector::N(std::uint32_t order) {
+long double Vector::N(std::uint32_t order) {
     if(this->empty()) {
         std::cout << " Norm of Empty Vector" << std::endl;
         return(0);
@@ -13,14 +13,13 @@ std::int32_t Vector::N(std::uint32_t order) {
     auto rows = this->size();
     for(auto row = 0; row < rows; ++row) {
         for(auto ent: this->at(row)) {
-            std::cout << "ent: " << ent << " ";
-            norm += std::pow(ent, order);
-            std::cout << "norm: " << norm << std::endl;
+            norm += std::pow(ent, 2);
         }
     }
 
+    //std::cout << " The value of |v| is " << norm << std::endl;
     if(norm) {
-        return(std::pow(norm, 1/order));
+        return(std::pow(norm, 1.0/order));
     }
 
     return(norm);

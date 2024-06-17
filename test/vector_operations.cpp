@@ -240,6 +240,7 @@ TEST_F(VectorOperations, VectorNorm_1) {
     /// @brief vectorSpace is a set of vectors
     space()->r(first);
     auto result = space()->r().N(1);
+    //std::cout << "value of VectorNorm_1: " << result << std::endl;
     EXPECT_EQ(result, 1);
 }
 
@@ -252,7 +253,22 @@ TEST_F(VectorOperations, VectorNorm_2) {
     /// @brief vectorSpace is a set of vectors
     space()->r(first);
     auto result = space()->r().N(2);
+    //std::cout << "value of VectorNorm_2: " << result << std::endl;
     EXPECT_EQ(result, 2);
+}
+
+TEST_F(VectorOperations, VectorNorm_3) {
+    Vector first = {
+        {3}, 
+        {3},
+        {3}
+    };
+
+    /// @brief vectorSpace is a set of vectors
+    space()->r(first);
+    auto result = space()->r().N(3);
+    //std::cout << "value of VectorNorm_3: " << result << std::endl;
+    ASSERT_DOUBLE_EQ(result, 3);
 }
 
 #endif /*__vector_operations_cpp__*/
