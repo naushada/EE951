@@ -3,6 +3,29 @@
 
 #include "vectors.hpp"
 
+std::int32_t Vector::N(std::uint32_t order) {
+    if(this->empty()) {
+        std::cout << " Norm of Empty Vector" << std::endl;
+        return(0);
+    }
+
+    std::uint32_t norm = 0;
+    auto rows = this->size();
+    for(auto row = 0; row < rows; ++row) {
+        for(auto ent: this->at(row)) {
+            std::cout << "ent: " << ent << " ";
+            norm += std::pow(ent, order);
+            std::cout << "norm: " << norm << std::endl;
+        }
+    }
+
+    if(norm) {
+        return(std::pow(norm, 1/order));
+    }
+
+    return(norm);
+}
+
 Vector Vector::T() {
     Vector _mm;
     if(this->empty()) {

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include <cmath>
 
 
 /// @brief https://www.statlect.com/matrix-algebra/inner-product
@@ -16,6 +17,7 @@ class Vector : public std::vector<std::vector<std::int32_t>> {
         Vector operator+ (const Vector& rhs) const;
         Vector operator* (const std::int32_t& scalar);
         friend Vector operator* (const std::int32_t& scalar, const Vector& v1);
+        std::int32_t N(std::uint32_t order);
         void print() const;
 
 };

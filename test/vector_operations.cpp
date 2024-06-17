@@ -231,5 +231,28 @@ TEST_F(VectorOperations, VectorInnerProductProperty) {
     /// <ar,s> = s.T()(ar)
 }
 
+TEST_F(VectorOperations, VectorNorm_1) {
+    Vector first = {
+        {1}, 
+        {0}
+    };
+
+    /// @brief vectorSpace is a set of vectors
+    space()->r(first);
+    auto result = space()->r().N(1);
+    EXPECT_EQ(result, 1);
+}
+
+TEST_F(VectorOperations, VectorNorm_2) {
+    Vector first = {
+        {2}, 
+        {0}
+    };
+
+    /// @brief vectorSpace is a set of vectors
+    space()->r(first);
+    auto result = space()->r().N(2);
+    EXPECT_EQ(result, 2);
+}
 
 #endif /*__vector_operations_cpp__*/
