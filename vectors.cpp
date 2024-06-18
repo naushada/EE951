@@ -115,6 +115,7 @@ Vector operator* (const std::int32_t& scalar, const Vector& v1) {
         v.push_back(_tt);
         _tt.clear();
     }
+    //v.push_back(_tt);
     return(v);
 }
 
