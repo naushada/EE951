@@ -26,30 +26,12 @@ RUN git clone https://github.com/google/googletest/ && \
     mkdir source && \
     cd source
 
-#RUN git clone https://github.com/google/googletest/
-#WORKDIR /tmp/googletest
-#RUN mkdir build && cd build && cmake .. && make install
-#RUN ldconfig
-
-#RUN mkdir -p /tmp/source
-#WORKDIR /tmp/source
-
-COPY inc /tmp/source/app
-COPY test /tmp/source/app
-COPY CMakeLists.txt /tmp/source/app
-COPY vectors_main.cpp /tmp/source/app
-COPY vectors.cpp /tmp/source/app
+COPY app /tmp/source/app
 
 RUN cd /tmp/source/app &&\
     mkdir build &&\
     cd build &&\
     cmake .. && make
-
-#WORKDIR /tmp/source/app
-
-#RUN mkdir -p /tmp/source/app/build
-#WORKDIR /tmp/source/app/build
-#RUN cmake .. && make
 
 RUN mkdir -p /opt/app
 RUN mkdir /opt/app/test

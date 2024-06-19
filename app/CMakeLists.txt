@@ -12,7 +12,7 @@ include_directories(inc)
 
 
 #all files from src directory, the file(GLOB...) allows for wildcard additions:
-file(GLOB SOURCES "*.cpp")
+file(GLOB SOURCES "src/*.cpp")
 
 add_executable(EE951 ${SOURCES})
 target_link_libraries(EE951 

@@ -11,7 +11,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2a -g -Wall -Wextra")
 
 #However, the file(GLOB...) allows for wildcard additions:
 file(GLOB SOURCES "*.cpp"  
-                    "../vectors.cpp")
+                    "../src/vectors.cpp")
 
 enable_testing()
 
