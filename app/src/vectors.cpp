@@ -127,19 +127,23 @@ void Vector::print() const {
         return;
     }
 
-    std::cout << "{\n";
+    std::cout << "[";
     for(auto row = 0; row < _rows; ++row) {
-        std::cout << "{";
         const auto cols = this->at(row).size();
+        if(cols > 1) {
+            std::cout << " [";
+        }
         for(auto col = 0; col < cols; ++col) {
             if(col < cols -1)
                 std::cout << " " << this->at(row).at(col) << " ";
             else 
                 std::cout << " " << this->at(row).at(col);
         }
-        std::cout << "}\n";
+        if(cols > 1) {
+            std::cout << "]";
+        }
     }
-    std::cout << "}\n";
+    std::cout << "]\n";
 }
 
 
